@@ -1,0 +1,406 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */
+input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+
+//old red: #993333
+
+$red: #A41111;
+
+body {
+	position: relative;
+	max-width: 1500px;
+	margin: 0 auto;
+	padding: 1px;
+	font-family: 'Acme', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-shadow: 3px 3px 3px black;
+}
+
+.wrapper {
+	height: 100vh;
+	background-image: url(../images/background_picnic_zoom.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0% 100%;
+	@media all and (max-width: 1050px) {
+		background-image: url(../images/background_picnic_zoom_mobile.png);
+		background-position: bottom right;
+	}
+	@media all and (max-width: 768px) {
+		background-image: url(../images/background_picnic_zoom_mobile2.png);
+		background-position: center right;
+	}
+}
+
+h2 {
+	margin: 0;
+	color: white;
+	font-size: 70px;
+	span {
+		font-size: 70px
+	}
+	@media all and (max-width: 768px) {
+		font-size: 50px;
+		span {
+			font-size: 50px;
+		}
+	}
+}
+
+p {
+	margin: 0;
+	font-size: 24px;
+	color: white;
+	span {
+		font-size: 24px;
+	}
+	@media all and (max-width: 768px) {
+		font-size: 18px;
+	}
+}
+
+//All styles relating to overlay at beginning of game
+.start-overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: rgba(0,0,0,.8);
+	.start-info {
+		width: 100%;
+	}
+	h1 {
+		margin: 160px 0;
+		text-align: center;
+		text-transform: uppercase;
+		color: #FFF;
+		letter-spacing: 25px;
+		line-height: 0.8;
+		@media all and (max-height: 650px) {
+			margin: 65px 0;
+		}
+		@media all and (max-height: 425px) {
+			margin: 40px 0;
+		}
+		.gatorUp {
+			transform: rotate(-25deg);
+		}
+		.haterDown {
+			transform: rotate(20deg);
+			color: $red;
+		}
+		.gatorAnimate {
+			transform: rotate(0deg);
+		}
+		.gatorUp, .haterDown {
+			display: inline-block;
+			padding-left: 25px;
+			transform-origin: left;
+			transition: transform 1s;
+			font-size: 90px;
+			@media all and (max-width: 570px) {
+				padding-left: 5px;
+				font-size: 60px;
+				letter-spacing: 5px;
+			}
+			@media all and (max-height: 650px) {
+				transform: rotate(0);
+			}
+		}
+	}
+	.target {
+		display: none;
+		margin-top: 90px;
+		text-align: center;
+		@media all and (max-width: 570px) {
+			margin-top: 30px;
+		}
+		p {
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 40px;
+			@media all and (max-width: 570px) {
+				font-size: 35px;
+			}
+		}
+		.target-images {
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			img {
+				width: 85px;
+				@media all and (max-width: 768px) {
+					width: 75px;
+				}
+			}
+		}
+	}
+	form {
+		display: none;
+		margin: 70px 0px;
+		text-align: center;
+		@media all and (max-width: 570px) {
+			margin-top: 10px;
+			margin-bottom: 40px;
+		}
+		label {
+			margin: 0 30px;
+			font-size: 50px;
+			color: white;
+			@media all and (max-width: 768px) {
+    			margin: 0 15px;
+				font-size: 35px;
+			}
+			@media all and (max-width: 570px) {
+				display: block;
+				font-size: 30px;
+			}
+			@media all and (max-height: 425px) {
+				display: inline-block;
+			}
+		}
+		input[type="radio"]:checked + label {
+			color: $red;
+		}
+		input[type="radio"] {
+			visibility: hidden;
+		}
+	}
+	.enter-button, .start-button {
+		display: block;
+		width: 200px;
+		height: 70px;
+		margin: 0 auto;
+		margin-top: -30px;
+		border-radius: 10px;
+		box-shadow: 2px 2px 2px #0b3220;
+		background-color: #257D3E;
+		border: 1px solid #257D3e;
+		color: white;
+		text-transform: uppercase;
+		font-size: 20px;
+		@media all and (max-width: 570px) {
+			bottom: 10px;
+		}
+	}
+	.yourScore {
+		display: none;
+		color: #fff;
+	}
+
+	.allScore {
+		display: none;
+		color: #fff;
+	}
+	footer {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		text-align: center;
+		font-size: 20px;
+		color: #fff;
+		text-transform: none;
+		@media all and (max-width: 768px) {
+			font-size: 18px;
+		}
+		ul {
+			padding: 0;
+			list-style-type: none;
+			font-size: 14px;
+			span {
+				text-decoration: underline;
+			}
+			a {
+				color: lightblue;
+			}
+		}
+	}
+}
+
+//All styles relating to main game board
+.hole-container {
+	position: absolute;
+	padding-top: 100px;
+	overflow: hidden;
+}
+
+.hole-container-1 {
+	bottom: 17%;
+	left: 42%;
+	@media all and (max-width: 1050px) {
+		bottom: 35%;
+		left: 25%;
+	}
+	@media all and (max-width: 768px) {
+		bottom: 31%;
+    	left: 13%;
+	}
+}
+
+.hole-container-2 {
+	bottom: 30%;
+	left: 13%;
+	@media all and (max-width: 1050px) {
+		bottom: 40%;
+    	left: 2%;
+	}
+	@media all and (max-width: 768px) {
+		bottom: 49%;
+	    left: 2%;
+	}
+}
+
+.hole-container-3 {
+	bottom: 12%;
+	left: 20%;
+	@media all and (max-width: 1050px) {
+		bottom: 15%;
+    	left: 2%;
+	}
+	@media all and (max-width: 768px) {
+		bottom: 17%;
+    	left: 2%;
+	}
+}
+
+.hole-container-4 {
+	bottom: 25%;
+	left: 30%;
+	@media all and (max-width: 1050px) {
+		bottom: 11%;
+    	left: 30%;
+	}
+	@media all and (max-width: 768px) {
+		bottom: 11%;
+    	left: 30%;
+	}
+}
+
+.hole-container-5 {
+	bottom: 35%;
+	left: 43%;
+	@media all and (max-width: 1050px) {
+		bottom: 28%;
+    	left: 48%;
+	}
+	@media all and (max-width: 768px) {
+		bottom: 39%;
+   		left: 39%;
+	}
+}
+
+.hole-container-6 {
+	bottom: 27%;
+	left: 57%;
+	@media all and (max-width: 1050px) {
+		bottom: 44%;
+	    left: 57%;
+	}
+	@media all and (max-width: 768px) {
+		bottom: 56%;
+   		left: 39%;
+	}
+}
+
+.hole-container-7 {
+	bottom: 12%;
+	left: 58%;
+	@media all and (max-width: 1050px) {
+		bottom: 15%;
+	    left: 58%;
+	}
+	@media all and (max-width: 768px) {
+		bottom: 17%;
+	    left: 58%;
+	}
+}
+
+.hole-container-8 {
+	bottom: 15%;
+	left: 80%;
+	@media all and (max-width: 1050px) {
+		bottom: 19%;
+	    right: 2%;
+	}
+	@media all and (max-width: 768px) {
+		bottom: 30%;
+   		left: 69%;
+	}
+}
+
+.hole-container-9 {
+	bottom: 32%;
+	left: 72%;
+	@media all and (max-width: 1050px) {
+		bottom: 39%;
+	    right: 2%;
+	}
+	@media all and (max-width: 768px) {
+		bottom: 48%;
+    	left: 69%;
+	}
+}
+
+.hole {
+	width: 140px;
+	height: 40px;
+	margin-bottom: -10px;
+	border-radius: 50%;
+	background-color: #1e7588;
+	@media all and (max-width: 570px) {
+		width: 100px;
+	}
+}
+
+.counter {
+	font-size: 35px;
+	p {
+		font-size: 30px;
+		span {
+			font-size: 35px;
+		}
+	}
+}
+
+.character-image {
+	display: none;
+ 	position: relative;
+ 	bottom: -100%;
+ 	margin-top: 40px;
+ 	z-index: 20;
+ 	text-align: center;
+ 	img {
+ 	 	width: auto;
+ 	 	height: 125px;
+ 	 	@media all and (max-width: 768) {
+ 	 		width: auto;
+ 	 		height: 110px;
+ 	 	}
+ 	 	@media all and (max-width: 570px) {
+ 	 		width: auto;
+			height: 90px;
+		}
+ 	}
+ 	.kapow, .sorry {
+ 		width: 100%;
+ 		height: auto;
+ 		position: relative;
+ 		top: -70px;
+ 	}
+ 	.lose-points {
+ 		color: $red;
+ 		font-style: bold;
+ 	}
+ 	p {
+ 		position: relative;
+ 		top: -70px;
+ 		font-size: 40px;
+ 	}
+}
