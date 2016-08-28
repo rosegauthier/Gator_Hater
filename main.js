@@ -70,6 +70,7 @@ $(function() {
         			$countdown.css("color", "orange");
         		} else if (startTime === 0) {
         			$countdown.css("color", "red");
+        			$('.target').hide();
         			// define score to store game.points (which is set to zero shortly here after)
         			var score = game.points;
         			// push score to userScores, globally scoped

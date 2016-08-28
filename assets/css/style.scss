@@ -71,7 +71,7 @@ p {
 	bottom: 0;
 	right: 0;
 	left: 0;
-	background-color: rgba(0,0,0,.8);
+	background-color: rgba(0,0,0,0.85);
 	.start-info {
 		width: 100%;
 	}
@@ -181,22 +181,49 @@ p {
 		border-radius: 10px;
 		box-shadow: 2px 2px 2px #0b3220;
 		background-color: #257D3E;
-		border: 1px solid #257D3e;
+		border: 2px solid #257D3e;
 		color: white;
 		text-transform: uppercase;
 		font-size: 20px;
+		outline: none;
+		&:focus, &:hover {
+			border: 2px solid white;
+		}
 		@media all and (max-width: 570px) {
 			bottom: 10px;
 		}
 	}
-	.yourScore {
-		display: none;
-		color: #fff;
-	}
+	.top-scores {
+		margin: 0 auto;
+		max-width: 265px;
+		.yourScore {
+			display: none;
+			margin-top: 90px;
+			text-align: center;
+			color: #fff;
+			font-size: 30px;
+			@media all and (max-width: 570px) {
+				margin-top: 10px;
+				font-size: 20px
+			}
+			span {
+				font-size: 34px;
+				@media all and (max-width: 570px) {
+					font-size: 24px;
+				}
+			}
+		}
 
-	.allScore {
-		display: none;
-		color: #fff;
+		.allScore {
+			display: none;
+			color: #fff;
+			font-size: 20px;
+			span {
+				display: inline-block;
+				margin-bottom: 5px;
+				border-bottom: 1px solid white;
+			}
+		}
 	}
 	footer {
 		position: absolute;
@@ -361,6 +388,7 @@ p {
 
 .counter {
 	font-size: 35px;
+	text-align: center;
 	p {
 		font-size: 30px;
 		span {
