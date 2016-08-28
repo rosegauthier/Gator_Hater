@@ -156,12 +156,12 @@ $(function() {
 		game.points = game.points + $(this).data('points');
 		$('.game-points').html(game.points);
 		if (($(this).data('points')) > 0 ) {
-			$(this).html(`<p class="points-awarded">+25</p><img src="assets/images/Kapow.png" class="kapow">`)
+			$(this).html(`<p class="points-awarded">+25</p><img src="assets/images/kapow.png" class="kapow">`)
 			setTimeout(function () {
 				$('.kapow, .points-awarded').remove();
 			}, 250);
 		} else {
-			$(this).html(`<p class="points-awarded lose-points">-25</p><img src="assets/images/Sorry.png" class="sorry">`)
+			$(this).html(`<p class="points-awarded lose-points">-25</p><img src="assets/images/sorry.png" class="sorry">`)
 			setTimeout(function () {
 				$('.sorry, .points-awarded').remove();
 			}, 250);
